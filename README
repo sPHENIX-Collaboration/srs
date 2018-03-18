@@ -1,0 +1,17 @@
+This is the RCDAQ plugin that teaches RCDAQ how to read out the
+CERN-RD51 "Scalable Readout System" (SRS).
+
+To install, use (assuming that you are in the build area)
+../../srs/autogen.sh --prefix=$INSTALL_AREA
+
+If ytour SRS crate has an IP address different from 10.0.0.2, you can
+communicate this at compile time with
+../../srs/autogen.sh --with-srsip=10.0.0.5 --prefix=$INSTALL_AREA
+
+This will configure all tools to use this IP by default.
+
+Note that you will likely want to unpack the srs_scripts.tar.gz
+tarball somewhere, which has some standard scripts to initialize the
+SRS and the hybrids. You should probably try the
+"setup_srs_testpulse.sh" setup, which sets the hybrids up to give test
+pulses. This will allow you to see if everything works ok.
