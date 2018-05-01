@@ -1,0 +1,24 @@
+AC_INIT(configure.in, 1.0)
+
+AC_CANONICAL_HOST
+
+
+AC_PROG_CXX(cxx CC g++)
+
+
+AM_INIT_AUTOMAKE (srs,1.00)
+
+AC_PROG_INSTALL
+
+AC_PROG_LIBTOOL
+
+CXXFLAGS=" -g -O2"
+
+
+AC_ARG_WITH([srsip],
+        [AS_HELP_STRING([--with-srsip=ip : default IP Address of the SRS crate])],
+	        [AC_DEFINE_UNQUOTED([SRSIP], ["$withval"])],
+		[AC_DEFINE_UNQUOTED([SRSIP], ["10.0.0.3"])])
+
+AC_OUTPUT(Makefile)
+
