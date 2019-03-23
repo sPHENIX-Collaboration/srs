@@ -11,7 +11,7 @@ allsources = \
 AM_LDFLAGS = -L$(libdir) -L$(ONLINE_MAIN)/lib
 
 
-INCLUDES = -I$(includedir) -I$(ONLINE_MAIN)/include 
+INCLUDES = -I$(includedir) -I$(ONLINE_MAIN)/include $(RPC_INCLUDE)
 
 
 lib_LTLIBRARIES =  libsrs_utils.la librcdaqplugin_srs.la 
@@ -21,14 +21,14 @@ librcdaqplugin_srs_la_SOURCES = \
 	srsTriggerHandler.cc \
 	srs_plugin.cc
 
-librcdaqplugin_srs_la_LIBADD = libsrs_utils.la -lrcdaqutils
+librcdaqplugin_srs_la_LIBADD = libsrs_utils.la -lrcdaqutils $(RPC_LDD)
 
 libsrs_utils_la_SOURCES = srs_utils.cc 
 
 bin_PROGRAMS =  srs_control
 
 srs_control_SOURCES = srs_control.cc 
-srs_control_LDADD = libsrs_utils.la -lrcdaqutils
+srs_control_LDADD = libsrs_utils.la -lrcdaqutils 
 
 
 clean-local:
