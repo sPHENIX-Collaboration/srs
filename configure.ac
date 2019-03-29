@@ -12,13 +12,16 @@ AC_PROG_INSTALL
 
 AC_PROG_LIBTOOL
 
+AC_CHECK_HEADER([rpc/rpc.h], [ ],
+                [AC_SUBST(AM_CPPFLAGS, "$AM_CPPFLAGS -I/usr/include/tirpc")] [AC_SUBST(RPC_LDD, "-ltirpc")])
+
 CXXFLAGS=" -g -O2"
 
 
 AC_ARG_WITH([srsip],
         [AS_HELP_STRING([--with-srsip=ip : default IP Address of the SRS crate])],
 	        [AC_DEFINE_UNQUOTED([SRSIP], ["$withval"])],
-		[AC_DEFINE_UNQUOTED([SRSIP], ["10.0.0.3"])])
+		[AC_DEFINE_UNQUOTED([SRSIP], ["10.0.0.2"])])
 
 AC_OUTPUT(Makefile)
 
