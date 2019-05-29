@@ -4,7 +4,7 @@ CERN-RD51 "Scalable Readout System" (SRS).
 To install, use (assuming that you are in the build area)
 ../../srs/autogen.sh --prefix=$INSTALL_AREA
 
-If ytour SRS crate has an IP address different from 10.0.0.2, you can
+If your SRS crate has an IP address different from 10.0.0.2, you can
 communicate this at compile time with
 ../../srs/autogen.sh --with-srsip=10.0.0.5 --prefix=$INSTALL_AREA
 
